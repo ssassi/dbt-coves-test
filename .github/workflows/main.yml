@@ -19,10 +19,15 @@ jobs:
       - name: Checkout branch
         uses: actions/checkout@v2
 
-      - name: prep
+      - name: seed
         uses: datacoves/dbt-coves-action@v1
         with:
-          command: "dbt seed --full-refresh && dbt run"
+          command: "dbt seed --full-refresh"
+
+      - name: seed
+        uses: datacoves/dbt-coves-action@v1
+        with:
+          command: "dbt run"
 
       - name: lint
         uses: datacoves/dbt-coves-action@v1
